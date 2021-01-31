@@ -1,0 +1,134 @@
+
+---
+## title: "Code book for Getting and Cleaning Data course project"
+
+---
+
+## Project Description
+
+One of the most exciting areas in all of data science right now is wearable computing - see for example this article. Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users.
+
+In this project, data collected from the accelerometer and gyroscope of the Samsung Galaxy S smart phone was retrieved, worked with, and cleaned, to prepare a tidy data that can be used for later analysis.
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities.70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+### Study design and data processing
+
+#### This repository contains the following files:
+
+* README.md, this file, which provides an overview of the data set and how it was created.
+* tidy_data.txt, which contains the data set.
+* CodeBook.md, the code book, which describes the contents of the data set (data, variables   and transformations used to generate the data).
+* run_analysis.R, the R script that was used to create the data set (see the Creating the    data set section below)
+
+### Collection of the raw data
+
+The source data are from the Human Activity Recognition Using Smartphones Data Set. A full description is available at the site where the data was obtained: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+Here are the data for the project: [link](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+
+
+### Activity Labels
+
+1. WALKING - subject was walking during the test
+2. WALKING_UPSTAIRS- subject was walking up a staircase during the test
+3. WALKING_DOWNSTAIRS-subject was walking down a staircase during the test
+4. SITTING -subject was sitting during the test
+5. STANDING - subject was standing during the test
+6. LAYING -subject was laying down during the test
+
+### List of file names
+
+- 'README.txt'
+
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+
+- 'features.txt': List of all features.
+
+- 'activity_labels.txt': Links the class labels with their activity name.
+
+- 'train/X_train.txt': Training set.
+
+- 'train/y_train.txt': Training labels.
+
+- 'test/X_test.txt': Test set.
+
+- 'test/y_test.txt': Test labels.
+- 'test/subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+- 'test/Inertial Signals/total_acc_x_test.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_test.txt' and 'total_acc_z_test.txt' files for the Y and Z axis. 
+
+- 'test/Inertial Signals/body_acc_x_test.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+
+- 'test/Inertial Signals/body_gyro_x_test.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+
+- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+
+- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
+
+### Features
+
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+* tBodyAcc-XYZ
+* tGravityAcc-XYZ
+* tBodyAccJerk-XYZ
+* tBodyGyro-XYZ
+* tBodyGyroJerk-XYZ
+* tBodyAccMag
+* tGravityAccMag
+* tBodyAccJerkMag
+* tBodyGyroMag
+* tBodyGyroJerkMag
+* fBodyAcc-XYZ
+* fBodyAccJerk-XYZ
+* fBodyGyro-XYZ
+* fBodyAccMag
+* fBodyAccJerkMag
+* fBodyGyroMag
+* fBodyGyroJerkMag
+
++ t suffix indicates time
++ f suffix indicated frequency
+
+### The set of variables that were estimated from these signals are: 
+
+* mean(): Mean value
+* std(): Standard deviation
+* mad(): Median absolute deviation 
+* max(): Largest value in array
+* min(): Smallest value in array
+* sma(): Signal magnitude area
+* energy(): Energy measure. Sum of the squares divided by the number of values. 
+* iqr(): Interquartile range 
+* entropy(): Signal entropy
+* arCoeff(): Autorregresion coefficients with Burg order equal to 4
+* correlation(): correlation coefficient between two signals
+* maxInds(): index of the frequency component with largest magnitude
+* meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+* skewness(): skewness of the frequency domain signal 
+* kurtosis(): kurtosis of the frequency domain signal 
+* bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each    window.
+* angle(): Angle between to vectors.
+
+### Identifiers
+
+* subjectID - The ID of the test subject
+* activityID - The type of activity performed when the corresponding measurements were taken
+
+### Creating the data set
+
+The R script run_analysis.R can be used to create the data set. It retrieves the source data set and transforms it to produce the final data set by implementing the following steps (see the Code book for details, as well as the comments in the script itself):
+
+1. Download and unzip source data if it doesn't exist.
+2. Read data.
+3. Merge the training and the test sets to create one data set.
+4. Extract only the measurements on the mean and standard deviation for each measurement.
+5. Use descriptive activity names to name the activities in the data set.
+6. Appropriately label the data set with descriptive variable names.
+7. Create a second, independent tidy set with the average of each variable for each activity and each subject.
+8. Write the data set to the tidy_data.txt file.
+9. The tidy_data.txt in this repository was created by running the run_analysis.R script      using R version 3.2.2 (2015-08-14) on Windows 8.1 64-bit edition.
+
+
